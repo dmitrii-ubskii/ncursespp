@@ -70,12 +70,6 @@ class Window
 			wrefresh(window);
 		}
 
-		template <typename ...Args>
-		std::size_t mvprintw_wrap(int x, int y, std::size_t width, char const* fmt, Args ...args);
-
-		template <typename ...Args>
-		void mvprintw_chop(int x, int y, std::size_t width, char const* fmt, Args ...args);
-
 		int wgetch();
 		virtual void handle_key(int) {}
 
