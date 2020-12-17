@@ -64,9 +64,9 @@ class Window
 		}
 
 		template <typename ...Args>
-		void mvprintw(int x, int y, char const* fmt, Args ...args)
+		void mvprintw(Point p, char const* fmt, Args ...args)
 		{
-			mvwprintw(window, y, x, fmt, args...);
+			mvwprintw(window, p.y, p.x, fmt, args...);
 			wrefresh(window);
 		}
 
