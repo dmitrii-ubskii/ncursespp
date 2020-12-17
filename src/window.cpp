@@ -12,12 +12,12 @@ Window::Window(WINDOW* window_)
 {}
 
 Window::Window(Window& parent_, Rect r_)
-	: window{subwin(parent_.window, static_cast<int>(r_.s.h), static_cast<int>(r_.s.w), r_.p.y, r_.p.x)}
+	: window{subwin(parent_.window, r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
 	, parent{&parent_}
 {}
 
 Window::Window(Rect r_)
-	: window{newwin(static_cast<int>(r_.s.h), static_cast<int>(r_.s.w), r_.p.y, r_.p.x)}
+	: window{newwin(r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
 {}
 
 Window::Window(Window&& other)
@@ -84,7 +84,7 @@ Rect Window::get_rect() const
 	int maxx, maxy;
 	getmaxyx(window, maxy, maxx);
 	getyx(window, r.p.y, r.p.x);
-	r.s = {static_cast<size_t>(maxx - r.p.x), static_cast<size_t>(maxy - r.p.y)};
+	r.s = {maxx - r.p.x, maxy - r.p.y};
 	return r;
 }
 }

@@ -1,8 +1,6 @@
 #ifndef NCURSESPP_GEOMETRY_H__
 #define NCURSESPP_GEOMETRY_H__
 
-#include <cstddef>
-
 namespace ncurses
 {
 struct Point
@@ -13,8 +11,8 @@ struct Point
 
 struct Size
 {
-	std::size_t w;
-	std::size_t h;
+	int w;
+	int h;
 };
 
 struct Rect
