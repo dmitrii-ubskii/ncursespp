@@ -9,8 +9,7 @@ namespace ncurses
 {
 Window::Window(WINDOW* window_)
 	: window{window_}
-{
-}
+{}
 
 Window::Window(Window& parent_, Rect r_)
 	: window{subwin(parent_.window, static_cast<int>(r_.s.h), static_cast<int>(r_.s.w), r_.p.y, r_.p.x)}
