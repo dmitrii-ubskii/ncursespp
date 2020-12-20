@@ -12,6 +12,7 @@ class Ncurses: public Window
 		~Ncurses();
 
 		void raw(bool);
+		void cbreak(bool);
 		void echo(bool);
 
 		bool has_colors();

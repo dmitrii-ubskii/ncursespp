@@ -9,7 +9,7 @@ Ncurses::Ncurses()
 {
 	curs_set(0);
 	start_color();
-	raw(true);
+	cbreak(true);
 	echo(false);
 	keypad(window, true);
 	// nonl();
@@ -19,6 +19,11 @@ Ncurses::Ncurses()
 Ncurses::~Ncurses()
 {
 	endwin();
+}
+
+void Ncurses::cbreak(bool on)
+{
+	on ? ::cbreak() : nocbreak();
 }
 
 void Ncurses::raw(bool on)
