@@ -8,34 +8,32 @@
 #undef getch
 #undef refresh
 
-namespace ncurses
-{
-Window::Window(WINDOW* window_)
+ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
 {}
 
-Window::Window(Window& parent_, Rect r_)
+ncurses::Window::Window(Window& parent_, Rect r_)
 	: window{subwin(parent_.window, r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
 	, parent{&parent_}
 {}
 
-Window::Window(Rect r_)
+ncurses::Window::Window(Rect r_)
 	: window{newwin(r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
 {}
 
-Window::Window(Window&& other)
+ncurses::Window::Window(Window&& other)
 	: window{other.window}
 {
 	other.window = nullptr;
 }
 
-Window& Window::operator=(Window&& other)
+ncurses::Window& ncurses::Window::operator=(Window&& other)
 {
 	std::swap(window, other.window);
 	return *this;
 }
 
-Window::~Window()
+ncurses::Window::~Window()
 {
 	if (window != nullptr)
 	{
@@ -43,45 +41,40 @@ Window::~Window()
 	}
 }
 
-void Window::draw_border()
+void ncurses::Window::draw_border()
 {
-	wborder(window, '|', '|', '-', '-', '+', '+', '+', '+');
+	box(window, 0, 0);
 }
 
-void Window::repaint()
-{
-	refresh();
-}
-
-void Window::refresh()
+void ncurses::Window::refresh()
 {
 	wrefresh(window);
 }
 
-void Window::clear()
+void ncurses::Window::clear()
 {
 	wclear(window);
 }
 
-void Window::focus(bool on)
+void ncurses::Window::focus(bool on)
 {
 	focused = on;	
 	repaint();
 }
 
-int Window::getch()
+int ncurses::Window::getch()
 {
 	return wgetch(window);
 }
 
-int Window::setcolor(Color fg, Color bg)
+int ncurses::Window::setcolor(Color fg, Color bg)
 {
 	short color_pair_id = static_cast<short>(fg) * 16 + static_cast<short>(bg);
 	init_pair(color_pair_id, static_cast<short>(fg), static_cast<short>(bg));
 	return wattron(window, COLOR_PAIR(color_pair_id));
 }
 
-Rect Window::get_rect() const
+ncurses::Rect ncurses::Window::get_rect() const
 {
 	Rect r;
 	int maxx, maxy;
@@ -89,5 +82,4 @@ Rect Window::get_rect() const
 	getyx(window, r.p.y, r.p.x);
 	r.s = {maxx - r.p.x, maxy - r.p.y};
 	return r;
-}
 }

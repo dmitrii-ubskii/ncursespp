@@ -2,9 +2,7 @@
 
 #include <ncurses.h>
 
-namespace ncurses
-{
-Ncurses::Ncurses()
+ncurses::Ncurses::Ncurses()
 	: Window{initscr()}
 {
 	curs_set(0);
@@ -16,28 +14,27 @@ Ncurses::Ncurses()
 	// intrflush(stdscr, false);
 }
 
-Ncurses::~Ncurses()
+ncurses::Ncurses::~Ncurses()
 {
 	endwin();
 }
 
-void Ncurses::cbreak(bool on)
+void ncurses::Ncurses::cbreak(bool on)
 {
 	on ? ::cbreak() : nocbreak();
 }
 
-void Ncurses::raw(bool on)
+void ncurses::Ncurses::raw(bool on)
 {
 	on ? ::raw() : noraw();
 }
 
-void Ncurses::echo(bool on)
+void ncurses::Ncurses::echo(bool on)
 {
 	on ? ::echo() : noecho();
 }
 
-bool Ncurses::has_colors()
+bool ncurses::Ncurses::has_colors()
 {
 	return ::has_colors();
-}
 }
