@@ -5,6 +5,9 @@
 
 #include <ncurses.h>
 
+#undef getch
+#undef refresh
+
 namespace ncurses
 {
 Window::Window(WINDOW* window_)
@@ -66,9 +69,9 @@ void Window::focus(bool on)
 	repaint();
 }
 
-int Window::wgetch()
+int Window::getch()
 {
-	return ::wgetch(window);
+	return wgetch(window);
 }
 
 int Window::setcolor(Color fg, Color bg)

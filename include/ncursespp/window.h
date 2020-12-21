@@ -70,7 +70,7 @@ class Window
 			wrefresh(window);
 		}
 
-		int wgetch();
+		int getch();
 		virtual void handle_key(int) {}
 
 		int setcolor(Color fg, Color bg);
