@@ -22,6 +22,11 @@ enum class Color: short
 	LightCyan = 14,
 	White = 15
 };
+
+void start_color();
+
+bool has_colors();
+bool can_change_color();
 }
 
 #endif // NCURSESPP_COLOR_H__

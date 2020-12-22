@@ -1,4 +1,5 @@
 #include "ncursespp/ncurses.h"
+#include "ncursespp/color.h"
 
 #include <ncurses.h>
 
@@ -6,7 +7,7 @@ ncurses::Ncurses::Ncurses()
 	: Window{initscr()}
 {
 	curs_set(0);
-	start_color();
+	ncurses::start_color();
 	cbreak(true);
 	echo(false);
 	keypad(window, true);
@@ -32,9 +33,4 @@ void ncurses::Ncurses::raw(bool on)
 void ncurses::Ncurses::echo(bool on)
 {
 	on ? ::echo() : noecho();
-}
-
-bool ncurses::Ncurses::has_colors()
-{
-	return ::has_colors();
 }

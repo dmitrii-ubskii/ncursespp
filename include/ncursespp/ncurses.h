@@ -14,8 +14,6 @@ class Ncurses: public Window
 		void raw(bool);
 		void cbreak(bool);
 		void echo(bool);
-
-		bool has_colors();
 };
 }
 
