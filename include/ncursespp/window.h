@@ -26,63 +26,63 @@ namespace ncurses
 {
 class Window
 {
-	public:
-		Window(WINDOW* window_);
-		Window(Window& parent, Rect r);
-		Window(Rect r);
+public:
+	Window(WINDOW* window_);
+	Window(Window& parent, Rect r);
+	Window(Rect r);
 
-		Window(Window const&) = delete;
-		Window& operator=(Window const&) = delete;
+	Window(Window const&) = delete;
+	Window& operator=(Window const&) = delete;
 
-		Window(Window&&);
-		Window& operator=(Window&&);
+	Window(Window&&);
+	Window& operator=(Window&&);
 
-		virtual ~Window();
+	virtual ~Window();
 
-		Window subwindow(Rect subwindow_area)
-		{
-			return subwindow<Window>(subwindow_area);
-		}
+	Window subwindow(Rect subwindow_area)
+	{
+		return subwindow<Window>(subwindow_area);
+	}
 
-		template<typename T, typename ...Args>
-		T subwindow(Args ...args)
-		{
-			return T{*this, std::forward<Args>(args)...};
-		}
+	template<typename T, typename ...Args>
+	T subwindow(Args ...args)
+	{
+		return T{*this, std::forward<Args>(args)...};
+	}
 
-		void draw_border();
-		virtual void repaint();
-		void refresh();
-		void clear();
-		void focus(bool on);
+	void draw_border();
+	virtual void repaint();
+	void refresh();
+	void clear();
+	void focus(bool on);
 
-		template <typename ...Args>
-		void printw(char const* fmt, Args ...args)
-		{
-			wprintw(window, fmt, args...);
-			wrefresh(window);
-		}
+	template <typename ...Args>
+	void printw(char const* fmt, Args ...args)
+	{
+		wprintw(window, fmt, args...);
+		wrefresh(window);
+	}
 
-		template <typename ...Args>
-		void mvprintw(Point p, char const* fmt, Args ...args)
-		{
-			mvwprintw(window, p.y, p.x, fmt, args...);
-			wrefresh(window);
-		}
+	template <typename ...Args>
+	void mvprintw(Point p, char const* fmt, Args ...args)
+	{
+		mvwprintw(window, p.y, p.x, fmt, args...);
+		wrefresh(window);
+	}
 
-		int getch();
-		virtual void handle_key(int) {}
+	int getch();
+	virtual void handle_key(int) {}
 
-		int setcolor(Color fg, Color bg);
+	int setcolor(Color fg, Color bg);
 
-		Rect get_rect() const;
+	Rect get_rect() const;
 
-	protected:
-		WINDOW* window;
+protected:
+	WINDOW* window;
 
-		Window* parent;
+	Window* parent;
 
-		bool focused = false;
+	bool focused = false;
 };
 }
 

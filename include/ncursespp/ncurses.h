@@ -7,13 +7,13 @@ namespace ncurses
 {
 class Ncurses: public Window
 {
-	public:
-		Ncurses();
-		~Ncurses();
+public:
+	Ncurses();
+	~Ncurses();
 
-		void raw(bool);
-		void cbreak(bool);
-		void echo(bool);
+	void raw(bool);
+	void cbreak(bool);
+	void echo(bool);
 };
 }
 
