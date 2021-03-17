@@ -7,6 +7,7 @@
 
 #undef getch
 #undef refresh
+#undef mvaddstr
 
 ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
@@ -56,6 +57,11 @@ void ncurses::Window::clear()
 void ncurses::Window::focus(bool on)
 {
 	focused = on;	
+}
+
+void ncurses::Window::mvaddstr(Point p, std::string const& s)
+{
+	mvwaddstr(window, p.y, p.x, s.c_str());
 }
 
 int ncurses::Window::getch()

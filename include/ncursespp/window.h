@@ -43,6 +43,8 @@ public:
 	void clear();
 	void focus(bool on);
 
+	void mvaddstr(Point, std::string const&);
+
 	template <typename ...Args>
 	void printw(char const* fmt, Args ...args)
 	{
