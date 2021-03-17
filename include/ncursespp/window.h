@@ -28,7 +28,6 @@ class Window
 {
 public:
 	Window(WINDOW* window_);
-	Window(Window& parent, Rect r);
 	Window(Rect r);
 
 	Window(Window const&) = delete;
@@ -37,16 +36,7 @@ public:
 	Window(Window&&);
 	Window& operator=(Window&&);
 
-	Window subwindow(Rect subwindow_area)
-	{
-		return subwindow<Window>(subwindow_area);
-	}
-
-	template<typename T, typename ...Args>
-	T subwindow(Args ...args)
-	{
-		return T{*this, std::forward<Args>(args)...};
-	}
+	~Window();
 
 	void draw_border();
 	void refresh();

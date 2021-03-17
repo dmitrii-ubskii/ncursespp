@@ -12,11 +12,6 @@ ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
 {}
 
-ncurses::Window::Window(Window& parent_, Rect r_)
-	: window{subwin(parent_.window, r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
-	, parent{&parent_}
-{}
-
 ncurses::Window::Window(Rect r_)
 	: window{newwin(r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
 {}
