@@ -51,7 +51,6 @@ public:
 	}
 
 	void draw_border();
-	virtual void repaint();
 	void refresh();
 	void clear();
 	void focus(bool on);

@@ -59,7 +59,6 @@ void ncurses::Window::clear()
 void ncurses::Window::focus(bool on)
 {
 	focused = on;	
-	repaint();
 }
 
 int ncurses::Window::getch()
