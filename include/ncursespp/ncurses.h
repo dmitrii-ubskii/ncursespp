@@ -14,6 +14,7 @@ public:
 	void raw(bool);
 	void cbreak(bool);
 	void echo(bool);
+	void set_cursor_visible(bool);
 };
 }
 

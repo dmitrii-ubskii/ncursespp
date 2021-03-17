@@ -6,7 +6,6 @@
 ncurses::Ncurses::Ncurses()
 	: Window{initscr()}
 {
-	curs_set(0);
 	ncurses::start_color();
 	cbreak(true);
 	echo(false);
@@ -33,4 +32,9 @@ void ncurses::Ncurses::raw(bool on)
 void ncurses::Ncurses::echo(bool on)
 {
 	on ? ::echo() : noecho();
+}
+
+void ncurses::Ncurses::set_cursor_visible(bool visible)
+{
+	curs_set(visible);
 }
