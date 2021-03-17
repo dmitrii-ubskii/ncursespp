@@ -37,8 +37,6 @@ public:
 	Window(Window&&);
 	Window& operator=(Window&&);
 
-	virtual ~Window();
-
 	Window subwindow(Rect subwindow_area)
 	{
 		return subwindow<Window>(subwindow_area);
@@ -70,7 +68,6 @@ public:
 	}
 
 	int getch();
-	virtual void handle_key(int) {}
 
 	int setcolor(Color fg, Color bg);
 
