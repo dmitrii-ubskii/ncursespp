@@ -9,7 +9,6 @@ ncurses::Ncurses::Ncurses()
 	ncurses::start_color();
 	cbreak(true);
 	echo(false);
-	keypad(window, true);
 	// nonl();
 	// intrflush(stdscr, false);
 }

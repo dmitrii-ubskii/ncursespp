@@ -10,10 +10,12 @@
 
 ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
-{}
+{
+	keypad(window, true);
+}
 
 ncurses::Window::Window(Rect r_)
-	: window{newwin(r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
+	: Window{newwin(r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
 {}
 
 ncurses::Window::Window(Window&& other)
