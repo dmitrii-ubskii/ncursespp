@@ -59,6 +59,11 @@ void ncurses::Window::focus(bool on)
 	focused = on;	
 }
 
+void ncurses::Window::move(Point p)
+{
+	wmove(window, p.y, p.x);
+}
+
 void ncurses::Window::mvaddstr(Point p, std::string const& s)
 {
 	mvwaddstr(window, p.y, p.x, s.c_str());
