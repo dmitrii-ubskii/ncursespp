@@ -90,7 +90,7 @@ ncurses::Rect ncurses::Window::get_rect() const
 	Rect r;
 	int maxx, maxy;
 	getmaxyx(window, maxy, maxx);
-	getyx(window, r.p.y, r.p.x);
+	getbegyx(window, r.p.y, r.p.x);
 	r.s = {maxx - r.p.x, maxy - r.p.y};
 	return r;
 }
