@@ -8,6 +8,7 @@
 #undef getch
 #undef refresh
 #undef mvaddstr
+#undef mvaddnstr
 
 ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
@@ -69,6 +70,11 @@ void ncurses::Window::mvaddstr(Point p, std::string const& s)
 	mvwaddstr(window, p.y, p.x, s.c_str());
 }
 
+void ncurses::Window::mvaddnstr(Point p, std::string const& s, int count)
+{
+	mvwaddnstr(window, p.y, p.x, s.c_str(), count);
+}
+	
 int ncurses::Window::getch()
 {
 	return wgetch(window);

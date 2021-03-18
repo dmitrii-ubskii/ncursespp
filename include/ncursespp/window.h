@@ -46,6 +46,7 @@ public:
 	void move(Point);
 
 	void mvaddstr(Point, std::string const&);
+	void mvaddnstr(Point, std::string const&, int count);
 
 	template <typename ...Args>
 	void printw(char const* fmt, Args ...args)
