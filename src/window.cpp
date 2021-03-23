@@ -75,9 +75,9 @@ void ncurses::Window::mvaddnstr(Point p, std::string const& s, int count)
 	mvwaddnstr(window, p.y, p.x, s.c_str(), count);
 }
 	
-int ncurses::Window::getch()
+ncurses::Key ncurses::Window::getch()
 {
-	return wgetch(window);
+	return {wgetch(window)};
 }
 
 int ncurses::Window::setcolor(Color fg, Color bg)

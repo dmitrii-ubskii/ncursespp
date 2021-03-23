@@ -13,6 +13,7 @@
 
 #include "ncursespp/color.h"
 #include "ncursespp/geometry.h"
+#include "ncursespp/keys.h"
 
 extern "C"
 {
@@ -62,7 +63,7 @@ public:
 		wrefresh(window);
 	}
 
-	int getch();
+	Key getch();
 
 	int setcolor(Color fg, Color bg);
 
