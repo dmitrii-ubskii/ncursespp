@@ -94,9 +94,7 @@ int ncurses::Window::setcolor(Color fg, Color bg)
 ncurses::Rect ncurses::Window::get_rect() const
 {
 	Rect r;
-	int maxx, maxy;
-	getmaxyx(window, maxy, maxx);
+	getmaxyx(window, r.s.h, r.s.w);
 	getbegyx(window, r.p.y, r.p.x);
-	r.s = {maxx - r.p.x, maxy - r.p.y};
 	return r;
 }
