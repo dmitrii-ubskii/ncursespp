@@ -15,6 +15,8 @@ struct Key
 
 	constexpr operator int() const { return keycode; }
 
+	static Key const Escape;
+
 	static Key const Enter;
 	static Key const Backspace;
 
@@ -31,6 +33,9 @@ struct Key
 	static constexpr Key Ctrl(Key k) { return {k.keycode & 037}; }
 	static constexpr Key F(int n) { return {KEY_F(n)}; }
 };
+
+// also Alt
+constexpr Key Key::Escape = {27};
 
 // overriding KEY_ENTER (actually a numpad enter key)
 constexpr Key Key::Enter = {'\n'};
