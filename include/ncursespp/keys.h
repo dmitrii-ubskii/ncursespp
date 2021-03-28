@@ -18,6 +18,11 @@ struct Key
 	static Key const Enter;
 	static Key const Backspace;
 					 
+	static Key const Home;
+	static Key const End;
+	static Key const PageUp;
+	static Key const PageDown;
+
 	static Key const Up;
 	static Key const Down;
 	static Key const Left;
@@ -30,6 +35,11 @@ struct Key
 // overriding KEY_ENTER (actually a numpad enter key)
 constexpr Key Key::Enter = {'\n'};
 constexpr Key Key::Backspace = {KEY_BACKSPACE};
+
+constexpr Key Key::Home = {KEY_HOME};
+constexpr Key Key::End = {KEY_END};
+constexpr Key Key::PageUp = {KEY_PPAGE};
+constexpr Key Key::PageDown = {KEY_NPAGE};
 
 constexpr Key Key::Up = {KEY_UP};
 constexpr Key Key::Down = {KEY_DOWN};
