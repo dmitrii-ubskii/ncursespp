@@ -50,6 +50,11 @@ void ncurses::Window::refresh()
 	wrefresh(window);
 }
 
+void ncurses::Window::erase()
+{
+	werase(window);
+}
+
 void ncurses::Window::clear()
 {
 	wclear(window);

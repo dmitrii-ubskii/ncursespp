@@ -42,6 +42,7 @@ public:
 	void draw_border();
 	void refresh();
 	void clear();
+	void erase();
 	void focus(bool on);
 
 	void move(Point);
