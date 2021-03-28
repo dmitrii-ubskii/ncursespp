@@ -17,7 +17,7 @@ struct Key
 
 	static Key const Enter;
 	static Key const Backspace;
-					 
+
 	static Key const Home;
 	static Key const End;
 	static Key const PageUp;

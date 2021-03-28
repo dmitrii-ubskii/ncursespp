@@ -62,7 +62,7 @@ void ncurses::Window::clear()
 
 void ncurses::Window::focus(bool on)
 {
-	focused = on;	
+	focused = on;
 }
 
 void ncurses::Window::move(Point p)
@@ -79,7 +79,7 @@ void ncurses::Window::mvaddnstr(Point p, std::string const& s, int count)
 {
 	mvwaddnstr(window, p.y, p.x, s.c_str(), count);
 }
-	
+
 ncurses::Key ncurses::Window::getch()
 {
 	return {wgetch(window)};
