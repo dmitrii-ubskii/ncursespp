@@ -1,3 +1,3 @@
 # ncursespp
 
-Modern C++ wrapper over the ncurses library
+Modern C++ wrapper over the ncurses library.
