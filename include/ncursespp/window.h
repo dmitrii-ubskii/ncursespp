@@ -67,6 +67,7 @@ public:
 	Key getch();
 
 	int setcolor(Color fg, Color bg);
+	void setbackground(Color);
 
 	Rect get_rect() const;
 
