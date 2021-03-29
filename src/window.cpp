@@ -96,11 +96,14 @@ int ncurses::Window::setcolor(Color fg, Color bg)
 	return wattron(window, COLOR_PAIR(color_pair_id));
 }
 
-void ncurses::Window::setbackground(Color bg)
+void ncurses::Window::setbackground(Color fg, Color bg)
 {
+	auto fg_index = static_cast<short>(fg);
 	auto bg_index = static_cast<short>(bg);
-	short color_pair_id = bg_index;
-	init_pair(color_pair_id, 0, bg_index);
+
+	short color_pair_id = static_cast<short>(fg_index * 16 + bg_index);
+	init_pair(color_pair_id, fg_index, bg_index);
+
 	wbkgdset(window, COLOR_PAIR(color_pair_id));
 }
 
