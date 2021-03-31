@@ -1,6 +1,8 @@
 #ifndef NCURSESPP_KEYS_H_
 #define NCURSESPP_KEYS_H_
 
+#include <functional>
+
 #include <curses.h>
 #undef getch
 #undef refresh
@@ -14,6 +16,8 @@ struct Key
 	int keycode;
 
 	constexpr operator int() const { return keycode; }
+
+	bool operator==(Key const& other) const { return keycode == other.keycode; }
 
 	static Key const Escape;
 
@@ -50,6 +54,25 @@ constexpr Key Key::Up = {KEY_UP};
 constexpr Key Key::Down = {KEY_DOWN};
 constexpr Key Key::Left = {KEY_LEFT};
 constexpr Key Key::Right = {KEY_RIGHT};
+}
+
+namespace std
+{
+template <>
+struct hash<ncurses::Key>
+{
+	std::size_t operator()(const ncurses::Key& k) const
+	{
+		using std::size_t;
+		using std::hash;
+
+		// Compute individual hash values for first,
+		// second and third and combine them using XOR
+		// and bit shifting:
+
+		return (hash<int>()(k.keycode));
+	}
+};
 }
 
 #endif // NCURSESPP_KEYS_H_
