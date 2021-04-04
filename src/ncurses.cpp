@@ -9,6 +9,7 @@ ncurses::Ncurses::Ncurses()
 	ncurses::start_color();
 	cbreak(true);
 	echo(false);
+	set_escdelay(0);
 	// nonl();
 	// intrflush(stdscr, false);
 }
