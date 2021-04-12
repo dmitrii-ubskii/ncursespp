@@ -19,6 +19,7 @@ struct Key
 
 	bool operator==(Key const& other) const { return keycode == other.keycode; }
 
+	static Key const Null;
 	static Key const Escape;
 
 	static Key const Enter;
@@ -37,6 +38,8 @@ struct Key
 	static constexpr Key Ctrl(Key k) { return {k.keycode & 037}; }
 	static constexpr Key F(int n) { return {KEY_F(n)}; }
 };
+
+constexpr Key Key::Null = {ERR};
 
 // also Alt
 constexpr Key Key::Escape = {27};
