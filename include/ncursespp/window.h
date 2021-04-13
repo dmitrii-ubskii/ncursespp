@@ -1,15 +1,7 @@
 #ifndef NCURSESPP_WINDOW_H__
 #define NCURSESPP_WINDOW_H__
 
-#include <algorithm>
-#include <bits/c++config.h>
-#include <cctype>
-#include <cstddef>
-#include <cstdio>
-#include <cstring>
-#include <memory>
 #include <string_view>
-#include <type_traits>
 
 #include "ncursespp/color.h"
 #include "ncursespp/geometry.h"
