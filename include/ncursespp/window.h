@@ -39,8 +39,8 @@ public:
 
 	void move(Point);
 
-	void mvaddstr(Point, std::string const&);
-	void mvaddnstr(Point, std::string const&, int count);
+	void mvaddstr(Point, std::string_view);
+	void mvaddnstr(Point, std::string_view, int count);
 
 	template <typename ...Args>
 	void printw(char const* fmt, Args ...args)
