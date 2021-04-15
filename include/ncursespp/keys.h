@@ -3,12 +3,6 @@
 
 #include <functional>
 
-#include <curses.h>
-#undef getch
-#undef refresh
-#undef mvaddstr
-#undef mvaddnstr
-
 namespace ncurses
 {
 struct Key
@@ -30,33 +24,33 @@ struct Key
 	static Key const PageUp;
 	static Key const PageDown;
 
-	static Key const Up;
 	static Key const Down;
+	static Key const Up;
 	static Key const Left;
 	static Key const Right;
 
 	static constexpr Key Ctrl(Key k) { return {k.keycode & 037}; }
-	static constexpr Key F(int n) { return {KEY_F(n)}; }
+	static constexpr Key F(int n) { return {0410 + n}; }
 };
 
-constexpr Key Key::Null = {ERR};
+constexpr Key Key::Null = {-1};  // ERR
 
 // also Alt
-constexpr Key Key::Escape = {27};
+constexpr Key Key::Escape = {033};
 
-// overriding KEY_ENTER (actually a numpad enter key)
+// not KEY_ENTER (that's actually a numpad enter key)
 constexpr Key Key::Enter = {'\n'};
-constexpr Key Key::Backspace = {KEY_BACKSPACE};
+constexpr Key Key::Backspace = {0407};  // KEY_BACKSPACE
 
-constexpr Key Key::Home = {KEY_HOME};
-constexpr Key Key::End = {KEY_END};
-constexpr Key Key::PageUp = {KEY_PPAGE};
-constexpr Key Key::PageDown = {KEY_NPAGE};
+constexpr Key Key::Home = {0406};  // KEY_HOME
+constexpr Key Key::End = {0550};  // KEY_END
+constexpr Key Key::PageDown = {0522};  // KEY_NPAGE
+constexpr Key Key::PageUp = {0523};  // KEY_PPAGE
 
-constexpr Key Key::Up = {KEY_UP};
-constexpr Key Key::Down = {KEY_DOWN};
-constexpr Key Key::Left = {KEY_LEFT};
-constexpr Key Key::Right = {KEY_RIGHT};
+constexpr Key Key::Down = {0402};  // KEY_DOWN
+constexpr Key Key::Up = {0403};  // KEY_UP
+constexpr Key Key::Left = {0404};  // KEY_LEFT
+constexpr Key Key::Right = {0405};  // KEY_RIGHT
 }
 
 namespace std
