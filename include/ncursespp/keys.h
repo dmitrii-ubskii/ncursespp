@@ -58,7 +58,7 @@ namespace std
 template <>
 struct hash<ncurses::Key>
 {
-	std::size_t operator()(const ncurses::Key& k) const
+	std::size_t operator()(const ncurses::Key& k) const noexcept
 	{
 		return (std::hash<int>()(k.keycode));
 	}
