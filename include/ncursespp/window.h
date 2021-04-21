@@ -12,7 +12,6 @@ extern "C"
 	typedef struct _win_st WINDOW;
 	int mvwprintw(WINDOW*, int y, int x, char const* fmt,...);
 	int wprintw(WINDOW*, char const* fmt,...);
-	int wrefresh(WINDOW*);
 }
 
 namespace ncurses
@@ -46,14 +45,14 @@ public:
 	void printw(char const* fmt, Args ...args)
 	{
 		wprintw(window, fmt, args...);
-		wrefresh(window);
+		refresh();
 	}
 
 	template <typename ...Args>
 	void mvprintw(Point p, char const* fmt, Args ...args)
 	{
 		mvwprintw(window, p.y, p.x, fmt, args...);
-		wrefresh(window);
+		refresh();
 	}
 
 	Key getch();
