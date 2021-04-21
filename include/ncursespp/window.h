@@ -19,8 +19,8 @@ namespace ncurses
 class Window
 {
 public:
-	Window(WINDOW* window_);
-	Window(Rect r);
+	Window(WINDOW*);
+	Window(Rect);
 
 	Window(Window const&) = delete;
 	Window& operator=(Window const&) = delete;
