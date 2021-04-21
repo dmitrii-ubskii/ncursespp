@@ -75,8 +75,6 @@ public:
 
 protected:
 	WINDOW* window;
-
-	Window* parent;
 };
 }
 
