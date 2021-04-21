@@ -6,6 +6,7 @@
 
 #undef getch
 #undef refresh
+#undef addstr
 #undef mvaddstr
 #undef mvaddnstr
 
@@ -65,6 +66,11 @@ void ncurses::Window::clear()
 void ncurses::Window::move(Point p)
 {
 	wmove(window, p.y, p.x);
+}
+
+void ncurses::Window::addstr(std::string_view s)
+{
+	waddstr(window, s.data());
 }
 
 void ncurses::Window::mvaddstr(Point p, std::string_view s)

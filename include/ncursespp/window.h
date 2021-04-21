@@ -38,6 +38,7 @@ public:
 
 	void move(Point);
 
+	void addstr(std::string_view);
 	void mvaddstr(Point, std::string_view);
 	void mvaddnstr(Point, std::string_view, int count);
 
