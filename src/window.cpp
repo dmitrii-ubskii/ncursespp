@@ -10,6 +10,7 @@
 #undef mvaddnstr
 
 #include "ncursespp/color.h"
+#include "ncursespp/error.h"
 
 ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
@@ -145,4 +146,21 @@ int ncurses::Window::get_width() const
 int ncurses::Window::get_height() const
 {
 	return get_size().h;
+}
+
+void ncurses::Window::moveTo(Point p)
+{
+	mvwin(window, p.y, p.x);
+}
+
+void ncurses::Window::resize(Size s)
+{
+	if (s.h <= 0 || s.w <= 0)
+	{
+		throw ncurses::Error{
+			"Window::resize() requires dimensions be greater than 0; got "
+			"[" + std::to_string(s.w) + "×" + std::to_string(s.h) + "]"
+		};
+	}
+	wresize(window, s.h, s.w);
 }

@@ -29,6 +29,8 @@ struct Key
 	static Key const Left;
 	static Key const Right;
 
+	static Key const Resize;
+
 	static constexpr Key Ctrl(Key k) { return {k.keycode & 037}; }
 	static constexpr Key F(int n) { return {0410 + n}; }
 };
@@ -51,6 +53,8 @@ constexpr Key Key::Down = {0402};  // KEY_DOWN
 constexpr Key Key::Up = {0403};  // KEY_UP
 constexpr Key Key::Left = {0404};  // KEY_LEFT
 constexpr Key Key::Right = {0405};  // KEY_RIGHT
+
+constexpr Key Key::Resize = {0632};  // KEY_RESIZE
 }
 
 namespace std
