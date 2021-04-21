@@ -35,7 +35,6 @@ public:
 	void refresh();
 	void clear();
 	void erase();
-	void focus(bool on);
 
 	void move(Point);
 
@@ -78,8 +77,6 @@ protected:
 	WINDOW* window;
 
 	Window* parent;
-
-	bool focused = false;
 };
 }
 

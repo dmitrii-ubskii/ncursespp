@@ -62,11 +62,6 @@ void ncurses::Window::clear()
 	wclear(window);
 }
 
-void ncurses::Window::focus(bool on)
-{
-	focused = on;
-}
-
 void ncurses::Window::move(Point p)
 {
 	wmove(window, p.y, p.x);
