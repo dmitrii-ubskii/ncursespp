@@ -61,7 +61,15 @@ public:
 	int setcolor(Color fg, Color bg);
 	void setbackground(Color fg, Color bg);
 
+	Point get_position() const;
+	Size get_size() const;
 	Rect get_rect() const;
+
+	int get_x() const;
+	int get_y() const;
+
+	int get_width() const;
+	int get_height() const;
 
 protected:
 	WINDOW* window;

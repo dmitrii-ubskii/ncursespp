@@ -107,10 +107,41 @@ void ncurses::Window::setbackground(Color fg, Color bg)
 	wbkgdset(window, COLOR_PAIR(color_pair_id));
 }
 
+ncurses::Size ncurses::Window::get_size() const
+{
+	Size s;
+	getmaxyx(window, s.h, s.w);
+	return s;
+}
+
+ncurses::Point ncurses::Window::get_position() const
+{
+	Point p;
+	getbegyx(window, p.y, p.x);
+	return p;
+}
+
 ncurses::Rect ncurses::Window::get_rect() const
 {
-	Rect r;
-	getmaxyx(window, r.s.h, r.s.w);
-	getbegyx(window, r.p.y, r.p.x);
-	return r;
+	return {get_position(), get_size()};
+}
+
+int ncurses::Window::get_x() const
+{
+	return get_position().x;
+}
+
+int ncurses::Window::get_y() const
+{
+	return get_position().y;
+}
+
+int ncurses::Window::get_width() const
+{
+	return get_size().w;
+}
+
+int ncurses::Window::get_height() const
+{
+	return get_size().h;
 }
