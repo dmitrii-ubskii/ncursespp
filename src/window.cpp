@@ -1,5 +1,4 @@
 #include "ncursespp/window.h"
-#include "ncursespp/color.h"
 
 #include <algorithm>
 
@@ -9,6 +8,8 @@
 #undef refresh
 #undef mvaddstr
 #undef mvaddnstr
+
+#include "ncursespp/color.h"
 
 ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
