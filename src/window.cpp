@@ -88,7 +88,7 @@ ncurses::Key ncurses::Window::getch()
 	return {wgetch(window)};
 }
 
-int ncurses::Window::setcolor(Color fg, Color bg)
+int ncurses::Window::set_color(Color fg, Color bg)
 {
 	auto fg_index = static_cast<short>(fg);
 	auto bg_index = static_cast<short>(bg);
@@ -96,18 +96,14 @@ int ncurses::Window::setcolor(Color fg, Color bg)
 	short color_pair_id = static_cast<short>(fg_index * 16 + bg_index);
 	init_pair(color_pair_id, fg_index, bg_index);
 
-	return wattron(window, COLOR_PAIR(color_pair_id));
+	palette = color_pair_id;
+
+	return wattron(window, COLOR_PAIR(palette));
 }
 
-void ncurses::Window::setbackground(Color fg, Color bg)
+void ncurses::Window::fill_background()
 {
-	auto fg_index = static_cast<short>(fg);
-	auto bg_index = static_cast<short>(bg);
-
-	short color_pair_id = static_cast<short>(fg_index * 16 + bg_index);
-	init_pair(color_pair_id, fg_index, bg_index);
-
-	wbkgdset(window, COLOR_PAIR(color_pair_id));
+	wbkgdset(window, COLOR_PAIR(palette));
 }
 
 ncurses::Size ncurses::Window::get_size() const

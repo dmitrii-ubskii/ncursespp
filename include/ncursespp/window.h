@@ -57,8 +57,8 @@ public:
 
 	Key getch();
 
-	int setcolor(Color fg, Color bg);
-	void setbackground(Color fg, Color bg);
+	int set_color(Color fg, Color bg);
+	void fill_background();
 
 	Point get_position() const;
 	Size get_size() const;
@@ -75,6 +75,8 @@ public:
 
 protected:
 	WINDOW* window;
+
+	short palette;
 };
 }
 
