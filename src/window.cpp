@@ -19,8 +19,8 @@ ncurses::Window::Window(WINDOW* window_)
 	keypad(window, true);
 }
 
-ncurses::Window::Window(Rect r_)
-	: Window{newwin(r_.s.h, r_.s.w, r_.p.y, r_.p.x)}
+ncurses::Window::Window(Rect r)
+	: Window{newwin(r.s.h, r.s.w, r.p.y, r.p.x)}
 {}
 
 ncurses::Window::Window(Window&& other)
