@@ -35,7 +35,7 @@ public:
 	void clear();
 	void erase();
 
-	void move(Point);
+	void move_cursor(Point);
 
 	void addstr(std::string_view);
 	void mvaddstr(Point, std::string_view);
@@ -70,7 +70,7 @@ public:
 	int get_width() const;
 	int get_height() const;
 
-	void moveTo(Point);
+	void move_to(Point);
 	void resize(Size);
 
 protected:

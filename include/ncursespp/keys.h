@@ -10,7 +10,7 @@ struct Key
 	int keycode;
 
 	constexpr operator int() const { return keycode; }
-	constexpr char toChar() { return static_cast<char>(keycode); }
+	constexpr char to_char() { return static_cast<char>(keycode); }
 
 	bool operator==(Key const& other) const { return keycode == other.keycode; }
 

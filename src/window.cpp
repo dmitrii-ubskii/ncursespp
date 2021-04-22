@@ -63,7 +63,7 @@ void ncurses::Window::clear()
 	wclear(window);
 }
 
-void ncurses::Window::move(Point p)
+void ncurses::Window::move_cursor(Point p)
 {
 	wmove(window, p.y, p.x);
 }
@@ -149,7 +149,7 @@ int ncurses::Window::get_height() const
 	return get_size().h;
 }
 
-void ncurses::Window::moveTo(Point p)
+void ncurses::Window::move_to(Point p)
 {
 	mvwin(window, p.y, p.x);
 }
