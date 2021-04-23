@@ -55,6 +55,7 @@ public:
 	void erase();
 
 	void move_cursor(Point);
+	Point get_cursor();
 
 	void addstr(std::string_view);
 	void mvaddstr(Point, std::string_view);

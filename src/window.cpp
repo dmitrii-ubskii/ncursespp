@@ -68,6 +68,13 @@ void ncurses::Window::move_cursor(Point p)
 	wmove(window, p.y, p.x);
 }
 
+ncurses::Point ncurses::Window::get_cursor()
+{
+	Point p;
+	getyx(window, p.y, p.x);
+	return p;
+}
+
 void ncurses::Window::addstr(std::string_view s)
 {
 	waddstr(window, s.data());
