@@ -57,7 +57,7 @@ public:
 
 	Key getch();
 
-	int set_color(Color fg, Color bg);
+	void set_color(Color fg, Color bg);
 	void fill_background();
 
 	Point get_position() const;

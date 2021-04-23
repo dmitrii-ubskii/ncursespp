@@ -88,7 +88,7 @@ ncurses::Key ncurses::Window::getch()
 	return {wgetch(window)};
 }
 
-int ncurses::Window::set_color(Color fg, Color bg)
+void ncurses::Window::set_color(Color fg, Color bg)
 {
 	auto fg_index = static_cast<short>(fg);
 	auto bg_index = static_cast<short>(bg);
@@ -98,7 +98,7 @@ int ncurses::Window::set_color(Color fg, Color bg)
 
 	palette = color_pair_id;
 
-	return wattron(window, COLOR_PAIR(palette));
+	wattron(window, COLOR_PAIR(palette));
 }
 
 void ncurses::Window::fill_background()
