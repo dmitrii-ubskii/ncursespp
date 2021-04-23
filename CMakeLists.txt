@@ -29,6 +29,7 @@ find_package(Curses REQUIRED)
 target_include_directories(ncursespp
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/extern/deeyou/include>
         $<INSTALL_INTERFACE:include>
         ${CURSES_INCLUDE_DIRS}
 )

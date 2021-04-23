@@ -3,6 +3,8 @@
 
 #include <string_view>
 
+#include "DU/flags.h"
+
 #include "ncursespp/color.h"
 #include "ncursespp/geometry.h"
 #include "ncursespp/keys.h"
@@ -16,6 +18,23 @@ extern "C"
 
 namespace ncurses
 {
+enum class Attribute
+{
+	Normal,
+	StandOut,
+	Underline,
+	Reverse,
+	Blink,
+	Dim,
+	Bold,
+	Protect,
+	Invis,
+	AltCharset,
+	Italic,
+};
+
+using AttributeSet = DU::Flags<Attribute>;
+
 class Window
 {
 public:
@@ -59,6 +78,11 @@ public:
 
 	void set_color(Color fg, Color bg);
 	void fill_background();
+
+	void set_attributes(AttributeSet);
+	AttributeSet get_attributes();
+	void add_attributes(AttributeSet);
+	void remove_attributes(AttributeSet);
 
 	Point get_position() const;
 	Size get_size() const;
