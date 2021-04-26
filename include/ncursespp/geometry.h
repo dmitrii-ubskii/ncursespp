@@ -1,5 +1,5 @@
-#ifndef NCURSESPP_GEOMETRY_H__
-#define NCURSESPP_GEOMETRY_H__
+#ifndef NCURSESPP_GEOMETRY_H_
+#define NCURSESPP_GEOMETRY_H_
 
 namespace ncurses
 {
@@ -22,4 +22,4 @@ struct Rect
 };
 }
 
-#endif // NCURSESPP_GEOMETRY_H__
+#endif // NCURSESPP_GEOMETRY_H_

@@ -1,5 +1,5 @@
-#ifndef NCURSESPP_WINDOW_H__
-#define NCURSESPP_WINDOW_H__
+#ifndef NCURSESPP_WINDOW_H_
+#define NCURSESPP_WINDOW_H_
 
 #include <string_view>
 
@@ -105,4 +105,4 @@ protected:
 };
 }
 
-#endif // NCURSESPP_WINDOW_H__
+#endif // NCURSESPP_WINDOW_H_

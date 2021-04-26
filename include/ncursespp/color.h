@@ -1,5 +1,5 @@
-#ifndef NCURSESPP_COLOR_H__
-#define NCURSESPP_COLOR_H__
+#ifndef NCURSESPP_COLOR_H_
+#define NCURSESPP_COLOR_H_
 
 namespace ncurses
 {
@@ -29,4 +29,4 @@ bool has_colors();
 bool can_change_color();
 }
 
-#endif // NCURSESPP_COLOR_H__
+#endif // NCURSESPP_COLOR_H_

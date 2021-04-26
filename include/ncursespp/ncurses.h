@@ -1,5 +1,5 @@
-#ifndef NCURSESPP_NCURSES_H__
-#define NCURSESPP_NCURSES_H__
+#ifndef NCURSESPP_NCURSES_H_
+#define NCURSESPP_NCURSES_H_
 
 #include "ncursespp/window.h"
 
@@ -18,4 +18,4 @@ public:
 };
 }
 
-#endif // NCURSESPP_NCURSES_H__
+#endif // NCURSESPP_NCURSES_H_
