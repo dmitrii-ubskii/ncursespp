@@ -39,7 +39,7 @@ class Window
 {
 public:
 	Window(WINDOW*);
-	Window(Rect);
+	explicit Window(Rect);
 
 	Window(Window const&) = delete;
 	Window& operator=(Window const&) = delete;
