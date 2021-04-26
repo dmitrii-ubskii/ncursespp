@@ -2,6 +2,9 @@
 
 #include <algorithm>
 
+#include "ncursespp/color.h"
+#include "ncursespp/error.h"
+
 #include <ncurses.h>
 
 #undef getch
@@ -9,9 +12,6 @@
 #undef addstr
 #undef mvaddstr
 #undef mvaddnstr
-
-#include "ncursespp/color.h"
-#include "ncursespp/error.h"
 
 ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
