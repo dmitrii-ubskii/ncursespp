@@ -84,6 +84,7 @@ public:
 	AttributeSet get_attributes();
 	void add_attributes(AttributeSet);
 	void remove_attributes(AttributeSet);
+	void set_attributes_in_rect(AttributeSet, Rect);
 
 	Point get_position() const;
 	Size get_size() const;

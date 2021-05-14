@@ -232,6 +232,14 @@ void ncurses::Window::remove_attributes(ncurses::AttributeSet attributes)
 	wattr_off(window, compileAttributes(attributes), nullptr);
 }
 
+void ncurses::Window::set_attributes_in_rect(ncurses::AttributeSet attributes, ncurses::Rect r)
+{
+	for (int y = r.p.y; y < r.p.y + r.s.h; y++)
+	{
+		mvwchgat(window, y, r.p.x, r.s.w, compileAttributes(attributes), palette, nullptr);
+	}
+}
+
 ncurses::Size ncurses::Window::get_size() const
 {
 	Size s;
