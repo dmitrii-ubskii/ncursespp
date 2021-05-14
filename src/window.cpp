@@ -25,6 +25,7 @@ ncurses::Window::Window(Rect r)
 
 ncurses::Window::Window(Window&& other)
 	: window{other.window}
+	, palette{other.palette}
 {
 	other.window = nullptr;
 }
@@ -32,6 +33,7 @@ ncurses::Window::Window(Window&& other)
 ncurses::Window& ncurses::Window::operator=(Window&& other)
 {
 	std::swap(window, other.window);
+	palette = other.palette;
 	return *this;
 }
 
