@@ -24,11 +24,9 @@ ncurses::Window::Window(Rect r)
 {}
 
 ncurses::Window::Window(Window&& other)
-	: window{other.window}
+	: window{std::exchange(other.window, nullptr)}
 	, palette{other.palette}
-{
-	other.window = nullptr;
-}
+{}
 
 ncurses::Window& ncurses::Window::operator=(Window&& other)
 {
