@@ -77,7 +77,7 @@ public:
 
 	Key getch();
 
-	void set_color(Color fg, Color bg);
+	void set_palette(Palette);
 	void fill_background();
 
 	void set_attributes(AttributeSet);
@@ -102,7 +102,7 @@ public:
 protected:
 	WINDOW* window;
 
-	short palette;
+	Palette palette;
 };
 }
 

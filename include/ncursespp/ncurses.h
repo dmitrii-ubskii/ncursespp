@@ -1,6 +1,7 @@
 #ifndef NCURSESPP_NCURSES_H_
 #define NCURSESPP_NCURSES_H_
 
+#include "ncursespp/color.h"
 #include "ncursespp/window.h"
 
 namespace ncurses
@@ -18,6 +19,7 @@ public:
 
 	bool has_colors();
 	bool can_change_color();
+	void register_palette(Palette, Color fg, Color bg);
 };
 }
 

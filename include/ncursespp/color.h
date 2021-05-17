@@ -23,7 +23,12 @@ enum class Color: short
 	White = 15
 };
 
+struct Palette
+{
+	short color_pair = 0;
+};
 
+constexpr Palette DefaultPalette{0};
 }
 
 #endif // NCURSESPP_COLOR_H_

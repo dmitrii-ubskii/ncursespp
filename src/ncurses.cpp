@@ -48,3 +48,11 @@ bool ncurses::Ncurses::can_change_color()
 {
 	return ::can_change_color();
 }
+
+void ncurses::Ncurses::register_palette(Palette palette_, Color fg, Color bg)
+{
+	auto fg_index = static_cast<short>(fg);
+	auto bg_index = static_cast<short>(bg);
+
+	init_pair(palette_.color_pair, fg_index, bg_index);
+}

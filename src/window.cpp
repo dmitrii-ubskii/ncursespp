@@ -95,22 +95,15 @@ ncurses::Key ncurses::Window::getch()
 	return {wgetch(window)};
 }
 
-void ncurses::Window::set_color(Color fg, Color bg)
+void ncurses::Window::set_palette(Palette palette_)
 {
-	auto fg_index = static_cast<short>(fg);
-	auto bg_index = static_cast<short>(bg);
-
-	short color_pair_id = static_cast<short>(fg_index * 16 + bg_index);
-	init_pair(color_pair_id, fg_index, bg_index);
-
-	palette = color_pair_id;
-
-	wattron(window, COLOR_PAIR(palette));
+	palette = palette_;
+	wattron(window, COLOR_PAIR(palette.color_pair));
 }
 
 void ncurses::Window::fill_background()
 {
-	wbkgdset(window, COLOR_PAIR(palette));
+	wbkgdset(window, COLOR_PAIR(palette.color_pair));
 }
 
 attr_t compileAttributes(ncurses::AttributeSet const& attributes)
@@ -165,7 +158,7 @@ attr_t compileAttributes(ncurses::AttributeSet const& attributes)
 
 void ncurses::Window::set_attributes(AttributeSet attributes)
 {
-	wattr_set(window, compileAttributes(attributes), palette, nullptr);
+	wattr_set(window, compileAttributes(attributes), palette.color_pair, nullptr);
 }
 
 ncurses::AttributeSet parseAttributes(attr_t const& attrs)
@@ -236,7 +229,7 @@ void ncurses::Window::set_attributes_in_rect(ncurses::AttributeSet attributes, n
 {
 	for (int y = r.p.y; y < r.p.y + r.s.h; y++)
 	{
-		mvwchgat(window, y, r.p.x, r.s.w, compileAttributes(attributes), palette, nullptr);
+		mvwchgat(window, y, r.p.x, r.s.w, compileAttributes(attributes), palette.color_pair, nullptr);
 	}
 }
 
