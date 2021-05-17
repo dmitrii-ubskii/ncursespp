@@ -18,7 +18,6 @@ endif()
 
 add_library(ncursespp STATIC
     src/ncurses.cpp
-    src/color.cpp
     src/window.cpp
 )
 

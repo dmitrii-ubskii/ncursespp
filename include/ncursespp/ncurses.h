@@ -15,6 +15,9 @@ public:
 	void cbreak(bool);
 	void echo(bool);
 	void set_cursor_visible(bool);
+
+	bool has_colors();
+	bool can_change_color();
 };
 }
 

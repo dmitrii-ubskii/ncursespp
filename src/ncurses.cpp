@@ -6,7 +6,7 @@
 ncurses::Ncurses::Ncurses()
 	: Window{initscr()}
 {
-	ncurses::start_color();
+	start_color();
 	cbreak(true);
 	echo(false);
 	set_escdelay(0);
@@ -37,4 +37,14 @@ void ncurses::Ncurses::echo(bool on)
 void ncurses::Ncurses::set_cursor_visible(bool visible)
 {
 	curs_set(visible);
+}
+
+bool ncurses::Ncurses::has_colors()
+{
+	return ::has_colors();
+}
+
+bool ncurses::Ncurses::can_change_color()
+{
+	return ::can_change_color();
 }
