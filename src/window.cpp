@@ -9,6 +9,7 @@
 
 #undef getch
 #undef refresh
+#undef addch
 #undef addstr
 #undef mvaddstr
 #undef mvaddnstr
@@ -73,6 +74,11 @@ ncurses::Point ncurses::Window::get_cursor()
 	Point p;
 	getyx(window, p.y, p.x);
 	return p;
+}
+
+void ncurses::Window::addch(char c)
+{
+	waddch(window, static_cast<unsigned>(c));
 }
 
 void ncurses::Window::addstr(std::string_view s)

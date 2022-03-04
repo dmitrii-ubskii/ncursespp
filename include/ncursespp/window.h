@@ -57,6 +57,7 @@ public:
 	void move_cursor(Point);
 	Point get_cursor();
 
+	void addch(char);
 	void addstr(std::string_view);
 	void mvaddstr(Point, std::string_view);
 	void mvaddnstr(Point, std::string_view, int count);
