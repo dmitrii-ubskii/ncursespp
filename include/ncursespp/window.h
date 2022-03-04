@@ -62,6 +62,8 @@ public:
 	void mvaddstr(Point, std::string_view);
 	void mvaddnstr(Point, std::string_view, int count);
 
+	void addwstr(std::wstring_view);
+
 	template <typename ...Args>
 	void printw(char const* fmt, Args ...args)
 	{

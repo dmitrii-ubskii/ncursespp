@@ -13,6 +13,7 @@
 #undef addstr
 #undef mvaddstr
 #undef mvaddnstr
+#undef addwstr
 
 ncurses::Window::Window(WINDOW* window_)
 	: window{window_}
@@ -94,6 +95,11 @@ void ncurses::Window::mvaddstr(Point p, std::string_view s)
 void ncurses::Window::mvaddnstr(Point p, std::string_view s, int count)
 {
 	mvwaddnstr(window, p.y, p.x, s.data(), count);
+}
+
+void ncurses::Window::addwstr(std::wstring_view s)
+{
+	waddwstr(window, s.data());
 }
 
 ncurses::Key ncurses::Window::getch()
